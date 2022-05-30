@@ -23,6 +23,7 @@ const add = ({ kind, x, y }, canvas) => {
           scaleY: scale,
           kind,
           origin,
+          isObject: true,
         });
 
         const p0 = cartesianToIsometric({
@@ -68,7 +69,7 @@ const add = ({ kind, x, y }, canvas) => {
 };
 
 const updateDepth = (canvas) => {
-  const objs = canvas.getObjects();
+  const objs = canvas.getObjects().filter(e => e.isObject);
   objs.forEach(obj => {
     const kind = obj.kind;
     const data = assets.find((asset) => asset.id === kind);

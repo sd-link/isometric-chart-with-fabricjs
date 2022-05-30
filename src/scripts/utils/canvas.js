@@ -1,9 +1,32 @@
-import element from "./element"; 
+import element from "./element";
+// import { fabric } from "fabric";
+// import { cartesianToIsometric } from "./coordinate";
+
 
 const initCanvas = (canvas) => {
   canvas.on("mouse:wheel", mouseWheel(canvas));
-
   canvas.on("object:moving", objectMoving(canvas));
+
+  // /* draw grid */
+  // const group = new fabric.Group([]);
+  // for (let x = 0; x < 50; x++) {
+  //   const iso0 = cartesianToIsometric({x: 0, y: x});
+  //   const iso1 = cartesianToIsometric({x: 10, y: x});
+
+  //   console.log(iso0, iso1);
+  //   const line0 = new fabric.Line([
+  //     iso0.left,
+  //     iso0.top,
+  //     iso1.left,
+  //     iso1.top,
+  //   ], {
+  //     left: 0,
+  //     top: 0,
+  //     stroke: "black",
+  //   });
+  //   group.addWithUpdate(line0);
+  // }
+  // canvas.add(group);
 };
 
 const objectMoving = (canvas) => () => {
